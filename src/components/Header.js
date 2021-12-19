@@ -13,14 +13,12 @@ const Container = styled.div`
   height: 67px;
   background: #c3cfd9;
   z-index: 30;
-  position: fixed;
+  position: sticky;
   top: 0;
   left: 0;
   display: flex;
   justify-content: center;
-
   
-
   h1 {
     margin: 0 auto;
     font-style: normal;

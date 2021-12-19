@@ -1,10 +1,11 @@
 import styled from "styled-components";
-
+import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
+
 export default function MainPage() {
-  const [Movies, setMovies] = useState([]);
+  const [movies, setMovies] = useState([]);
 
   useEffect(() => {
     const promise = axios.get(
@@ -21,9 +22,11 @@ export default function MainPage() {
         <h1>Selecione o filme</h1>
       </div>
       <div className="movies">
-        {Movies.map((movie) => (
+        {movies.map((movie) => (
           <div className="poster" key={movie.id}>
+            <Link to={`/sessoes/${movie.id}`}>
             <img src={movie.posterURL}></img>
+            </Link>
           </div>
         ))}
       </div>
@@ -65,10 +68,16 @@ const Container = styled.div`
   }
 
   h1 {
+    font-family: "Roboto";
     font-style: normal;
     font-weight: normal;
-    font-size: 34px;
-    line-height: 40px;
+    font-size: 24px;
+    line-height: 28px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    letter-spacing: 0.04em;
+
     color: #293845;
   }
   .poster {
