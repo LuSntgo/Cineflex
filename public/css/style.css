@@ -5,13 +5,11 @@
   
   body {
     width: 100vw;
-    height: 100vh;
+
     font-family: "Roboto", sans-serif;
     color: #262626;
     font-weight: 400;
     font-size: 14px;
-
-    position: relative;
 
   }
   .hide {

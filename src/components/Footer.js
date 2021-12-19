@@ -15,7 +15,6 @@ export default function Footer({ title, posterURL }) {
 
 const Container = styled.div`
   position: fixed;
-  padding-top: 60px;
   width: 100%;
   height: 117px;
   background: #c3cfd9;
@@ -23,5 +22,37 @@ const Container = styled.div`
   bottom: 0;
   left: 0;
   display: flex;
-  justify-content: center;
+
+  .poster {
+    width: 64px;
+    height: 89px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin-left: 10px;
+    margin-top: 15px;
+    background: #ffffff;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 2px;
+  }
+
+  img {
+    width: 48px;
+    height: 72px;
+  }
+  .title {
+    width: 169px;
+    height: 80px;
+    margin: auto 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  p {
+
+    font-size: 26px;
+    line-height: 30px;
+    color: #293845;
+  }
 `;

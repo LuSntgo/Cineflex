@@ -27,7 +27,7 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   margin-left: 23px;
-  
+ 
 
   .day {
     height: 35px;

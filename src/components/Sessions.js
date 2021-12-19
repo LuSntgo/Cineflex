@@ -8,19 +8,23 @@ import Footer from "./Footer";
 
 export default function Sessions() {
   const { idSessions } = useParams();
+  const [isFooter, setFooter] = useState([]);
   const [sessions, setSessions] = useState([]);
 
+  
   useEffect(() => {
-    const promise = axios.get(
-      `https://mock-api.driven.com.br/api/v4/cineflex/movies/${idSessions}/showtimes`
-    );
-
-    promise.then((res) => {
-      setSessions(res.data.days);
-    });
-  }, []);
-
+      const promise = axios.get(
+          `https://mock-api.driven.com.br/api/v4/cineflex/movies/${idSessions}/showtimes`
+          );
+          
+          promise.then((res) => {
+              setSessions(res.data.days);
+              setFooter(res.data);
+            });
+        }, []);
+      
   return (
+      <>
     <Container>
       <div className="sessionsMovie">
         <header>
@@ -37,22 +41,21 @@ export default function Sessions() {
           ))}
         </div>
       </div>
-      <Footer />
+      <Footer title={isFooter.title} posterURL={isFooter.posterURL} />
     </Container>
+    </>
   );
 }
 
 const Container = styled.div`
-  position: absolute;
-  width: 100%;
-  height: 110px;
-  top: 120px;
+  width: auto;
+  min-width: 100%; 
+  height: auto;
 
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-
   .sessionsMovie {
     display: flex;
     justify-content: center;
@@ -60,14 +63,14 @@ const Container = styled.div`
     text-align: center;
     flex-direction: column;
     
-
   }
   header {
-    width: 374px;
+    width: 100%;
     height: 110px;
     display: flex;
     justify-content: center;
     align-items: center;
+    
   }
   h1 {
     font-size: 24px;
@@ -81,7 +84,6 @@ const Container = styled.div`
   }
   .dates-session {
     width: 241px;
-    height: 35px;
 
     font-size: 20px;
     line-height: 23px;
@@ -90,8 +92,8 @@ const Container = styled.div`
     display: flex;
     align-items: center;
     flex-direction: column;
-    padding-bottom: 117px;
 
     color: #293845;
+    padding-bottom: 120px;
   }
 `;
