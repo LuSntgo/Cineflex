@@ -21,9 +21,9 @@ export default function MainPage() {
         <h1>Selecione o filme</h1>
       </div>
       <div className="movies">
-        {Movies.map((mov) => (
-          <div className="poster" key={mov.id}>
-            <img src={mov.posterURL}></img>
+        {Movies.map((movie) => (
+          <div className="poster" key={movie.id}>
+            <img src={movie.posterURL}></img>
           </div>
         ))}
       </div>
@@ -46,6 +46,8 @@ const Container = styled.div`
     width: 100%;
     height: 100%;
     display: flex;
+    justify-content: center;
+    align-items: center;
     flex-wrap: wrap;
     margin-left: 38px;
     margin-right: 38px;
