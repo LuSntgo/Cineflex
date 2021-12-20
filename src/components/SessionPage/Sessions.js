@@ -50,7 +50,6 @@ const Container = styled.div`
   width: auto;
   min-width: 100%;
   height: auto;
-
   display: flex;
   justify-content: center;
   align-items: center;
@@ -77,20 +76,16 @@ const Container = styled.div`
     align-items: center;
     text-align: center;
     letter-spacing: 0.04em;
-
     color: #293845;
   }
   .dates-session {
     width: 241px;
-
     font-size: 20px;
     line-height: 23px;
     letter-spacing: 0.02em;
-
     display: flex;
     align-items: center;
     flex-direction: column;
-
     color: #293845;
     padding-bottom: 120px;
   }

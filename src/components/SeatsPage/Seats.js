@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import axios from "axios";
 import { useParams } from "react-router-dom";
+import { useNavigate } from "react-router";
 import { useState, useEffect } from "react";
 import Seat from "./Seat";
 import LabelSeats from "./Label-Seats";
@@ -11,7 +12,9 @@ import Footer from "../Footer"
 export default function Seats() {
   const [seat, setSeats] = useState([]);
   const { idSessions } = useParams();
+  const [isFooter, setFooter] = useState([]);
   const [userSeat, setUserSeat] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const promise = axios.get(
@@ -20,8 +23,18 @@ export default function Seats() {
 
     promise.then((res) => {
       setSeats(res.data.seats);
+      setFooter(res.data);
     });
   }, []);
+
+function postSeat(){
+  const promise = axios.post(
+    "https://mock-api.driven.com.br/api/v4/cineflex/seats/book-many");
+    
+    promise.then(() => {
+      navigate("/sucesso");
+    });    
+  }
 
   return (
     <Container>
@@ -41,11 +54,17 @@ export default function Seats() {
         ))}
       </div>
       <LabelSeats />
-      <InputUser />
-      <Footer />
+      <InputUser post={postSeat} />
+      <Footer   
+      time={seat.name}
+        day={seat.day.weekday}
+        title={seat.movie.title}
+        img={seat.movie.posterURL}
+        key={seat.movie.id} />
     </Container>
   );
 }
+
 
 const Container = styled.div`
   display: flex;

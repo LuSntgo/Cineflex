@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
-export default function InputUser() {
+
+export default function InputUser({post}) {
   return (
     <Container>
       <form>
@@ -9,7 +10,7 @@ export default function InputUser() {
         <p>CPF do comprador: </p>
         <input type="number" placeholder="Digite seu CPF..." />
       </form>
-      <button>Reservar assento(s)</button>
+      <button onClick={() => post()}>Reservar assento(s)</button>
     </Container>
   );
 }
