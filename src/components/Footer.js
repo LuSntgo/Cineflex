@@ -31,6 +31,7 @@ const Container = styled.div`
     align-items: center;
 
     margin-left: 10px;
+    margin-right: 10px;
     margin-top: 15px;
     background: #ffffff;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
@@ -42,7 +43,7 @@ const Container = styled.div`
     height: 72px;
   }
   .title {
-    width: 169px;
+    width: 80%;
     height: 80px;
     margin: auto 0;
     display: flex;
@@ -50,7 +51,6 @@ const Container = styled.div`
     justify-content: center;
   }
   p {
-
     font-size: 26px;
     line-height: 30px;
     color: #293845;

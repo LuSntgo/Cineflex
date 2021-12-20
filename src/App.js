@@ -2,7 +2,8 @@ import {BrowserRouter,Routes,Route} from "react-router-dom";
 //import Footer from "./components/Footer";
 import Header from "./components/Header";
 import MainPage from "./components/MainPage";
-import Sessions from "./components/Sessions";
+import Sessions from "./components/SessionPage/Sessions"
+import Seats from "./components/SeatsPage/Seats"
 
 export default function App() {
   return (
@@ -12,6 +13,7 @@ export default function App() {
 
       <Route path="/" element={<MainPage/>}/>
       <Route path="/sessoes/:idSessions" element={<Sessions/>}></Route>
+      <Route path="/assentos/:idSessions" element={<Seats/>}></Route>
       </Routes>      
    </BrowserRouter>
 
